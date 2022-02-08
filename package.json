@@ -1,0 +1,23 @@
+{
+  "name": "argus-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "argus": "./bin/index.ts"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "chalk": "^5.0.0",
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}

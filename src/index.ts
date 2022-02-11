@@ -3,6 +3,7 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
+
 yargs(hideBin(process.argv))
   // Use the commands directory to scaffold.
   .commandDir('commands')
@@ -11,4 +12,3 @@ yargs(hideBin(process.argv))
   // Useful aliases.
   .alias({ h: 'help' })
   .argv;
-

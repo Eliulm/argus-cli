@@ -4,8 +4,8 @@
 	"version": "0.0.1",
 	"license": "UNLICENSED",
 	"bin": {
-		"argus": "index.js",
-		"hello": "index.js"
+		"argus": "./build/index.js",
+		"hello": "./build/index.js"
 	},
 	"author": {
 		"name": "Elias Ruben Wahl",
@@ -17,8 +17,8 @@
 		"Elias Ruben Wahl"
 	],
 	"files": [
-		"index.js",
-		"utils"
+		"./build/index.js",
+		"./build/utils"
 	],
 	"scripts": {
 		"format": "prettier --write \"./**/*.{js,json}\""

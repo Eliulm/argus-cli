@@ -1,5 +1,5 @@
-//let alert = require('cli-alerts');
-import alert from 'cli-alerts';
+const alert = require('cli-alerts');
+//import alert from 'cli-alerts';
 
 module.exports = info => {
 	alert({

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2020",
-    "lib": ["es2015"],
+    "lib": ["es2015", "DOM"],
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "./build",
@@ -13,5 +13,5 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "include": ["src/**/*"]
+  "include": ["utils/**/*", "utils/*", "index.ts"]
 }

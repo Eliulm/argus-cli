@@ -10,7 +10,7 @@ export default async (token) => {
 			return console.log(err);
 		} else {
 			console.log('writing secrets...');
-			console.log(JSON.stringify(file));
+			console.log("token: " + token );
 		} 
 	});
 };

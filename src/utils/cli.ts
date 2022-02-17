@@ -1,7 +1,7 @@
 const meow = require('meow');
 const meowHelp = require('cli-meow-help');
 
-const flags = {
+export const flags = {
 	clear: {
 		type: `boolean`,
 		default: true,
@@ -31,23 +31,24 @@ const flags = {
 	}
 };
 
-const commands = {
+export const commands = {
 	help: { desc: `Print help info` },
 	landingPage: {desc: `Landing page`},
 	init: {desc: `Saves an access token for the polygon.io api`}
 };
 
-const helpText = meowHelp({
+export const helpText = meowHelp({
 	name: `hello`,
 	flags,
 	commands
 });
 
-const options = {
+export const options = {
 	inferType: true,
 	description: false,
 	hardRejection: false,
 	flags
 };
 
-module.exports = meow(helpText, options);
+export default meow(helpText, options)
+//module.exports = meow(helpText, options);

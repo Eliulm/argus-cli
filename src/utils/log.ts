@@ -1,7 +1,7 @@
 const alert = require('cli-alerts');
 //import alert from 'cli-alerts';
 
-module.exports = info => {
+export default info => {
 	alert({
 		type: `warning`,
 		name: `DEBUG LOG`,

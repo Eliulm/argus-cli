@@ -1,6 +1,6 @@
 const figlet = require('figlet');
 
-module.exports =  () => {
+export default () => {
     figlet('argus-cli', function(err, data) {
         if (err) {
             console.log('Something went wrong...');

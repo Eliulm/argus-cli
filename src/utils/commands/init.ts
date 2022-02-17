@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-module.exports = async (token) => {
-	const filename = '/Users/elias_wahl/argus-cli/utils/commands/secrets.json';
+export default async (token) => {
+	const filename = '/Users/elias_wahl/argus-cli/src/utils/commands/secrets.json';
 	const file = require(filename);
 	file.api.token = token
 
@@ -13,4 +13,4 @@ module.exports = async (token) => {
 			console.log(JSON.stringify(file));
 		} 
 	});
-}
+};

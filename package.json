@@ -3,6 +3,7 @@
 	"description": "landing page :)",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
+	"main": "./build/index.js",
 	"bin": {
 		"argus": "./build/index.js",
 		"hello": "./build/index.js"

@@ -7,15 +7,14 @@
  * @author Elias Ruben Wahl <https://github.com/Eliulm>
  */
 
-//const init = require('./utils/commands/init');
-//const cli = require('./utils/cli');
-//const log = require('./utils/log');
-//const landingPage = require('./utils/commands/landingPage')*/
-import init from './utils/commands/init'
+
 import { flags, commands, options} from './utils/cli'
 import cli from './utils/cli'
 import log from './utils/log'
-import landingPage from './utils/commands/landingPage'
+
+import landingPage from './utils/commands/landingPageService'
+import init from './utils/commands/initService'
+import shuffle from './utils/commands/shuffleService'
 
 const input = cli.input;
 //from meow
@@ -31,10 +30,10 @@ const { clear, debug } = flags;
 
 	if (input[0].indexOf('cli') > -1) {
 		landingPage();
-	}
-
-	if(input[0].indexOf('init') > -1) {
+	} else if (input[0].indexOf('init') > -1) {
 		init(flagsInput.token);
+	} else if(input[0].indexOf('shuffle') > -1) {
+		shuffle();
 	}
 
 })().catch((err) => console.log(err));

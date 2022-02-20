@@ -5,8 +5,7 @@
 	"license": "UNLICENSED",
 	"main": "./build/index.js",
 	"bin": {
-		"argus": "./build/index.js",
-		"hello": "./build/index.js"
+		"argus": "./build/index.js"
 	},
 	"author": {
 		"name": "Elias Ruben Wahl",

@@ -1,8 +1,10 @@
 const fs = require('fs')
 const axios = require('axios')
 
+
+//TODO implement rest call to get query.
 export default async () => {
-    const filename = '/Users/elias_wahl/argus-cli/src/utils/commands/secrets.json';
+    const filename = '/Users/elias_wahl/argus-cli/src/sectets/secrets.json';
     const file = require(filename);
 
     fs.readFile(file, (err : any, data : any) => {

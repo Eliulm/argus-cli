@@ -3,23 +3,26 @@ const cheerio = require('cheerio')
 
 import { fetchData } from '../helper/webcrawlerHelper'
 
-export default async () => {
+export default async (amount : number) => {
     //fill in your own
-    const url = "";
-    //const url ="https://www.iban.com/exchange-rates";
+    const url = "https://de.finance.yahoo.com/most-active/?offset=0&count=100";
 
     fetchData(url).then( (res) => {
         const html = res.data;
-        console.log(html)
         const $ = cheerio.load(html);
 
         const tickers : string[] = [];
-        const tickerTable = $('#scr-res-table > div > table > tbody > tr > td');
-        console.log("processing...")
+        const tickerTable = $('#scr-res-table > div > table > tbody > tr > td > a');
         tickerTable.each(function() {
             let ticker = $(this).text().toString();
-            console.log("ticker:")
-            console.log(ticker);
+            tickers.push(ticker);
         });
-    }).catch((err) => console.log(err))
+
+        let count : number = tickers.length;
+        for (let i=0; i< amount; i++) {
+            var randInt : number = Math.floor(Math.random() * count);
+            var symbol = tickers[randInt];
+            console.log(symbol);
+        }
+    }).catch((err) => console.log(err));
 }

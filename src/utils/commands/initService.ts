@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 export default async (token : string) => {
-	const filename = '/Users/elias_wahl/argus-cli/src/secrets/secrets.json';
+	const filename = 'C:/Users/Elias Wahl/argus-cli/src/secrets/secrets.json';
 	const file = require(filename);
 	file.api.token = token
 

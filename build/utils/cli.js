@@ -30,6 +30,12 @@ exports.flags = {
         type: `string`,
         alias: `t`,
         desc: `Pass an access token`
+    },
+    amount: {
+        type: `number`,
+        default: 10,
+        alias: `a`,
+        desc: `Prints a scpecified random amount of actively traded ticker in german markets. Default is 10.`
     }
 };
 exports.commands = {

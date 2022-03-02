@@ -11,6 +11,7 @@ export default async () => {
         if (err) console.log(err);
 
         const token = data.api.token;
+       
         
         axios.get(`https://api.polygon.io/v3/reference/tickers
         ?active=true&sort=ticker&order=asc&limit=10&apiKey=${token}`)

@@ -13,11 +13,13 @@ export const filterData = (html: any, amount: number, market: string): string[] 
 
     let symbols: string[] = []; 
     let count : number = tickers.length;
-        for (let i=0; i< amount; i++) {
+    if (amount <= tickers.length) {
+         for (let i=0; i< amount; i++) {
             var randInt : number = Math.floor(Math.random() * count);
             var symbol = tickers[randInt];
             symbols.push(symbol);
+    }} else {
+        console.log("Error -> Specified amount can not exceed total of tickers available.")
     }
-    
     return symbols;
 } 

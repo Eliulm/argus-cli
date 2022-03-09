@@ -10,6 +10,7 @@ exports.default = async (amount, market) => {
         const html = res.data;
         const $ = cheerio.load(html);
         const tickers = (0, filterHelper_1.filterData)($, amount, market);
+        console.log("Market: " + market, " | Amount: " + amount + "\n");
         for (const ticker of tickers) {
             console.log(ticker);
         }

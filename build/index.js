@@ -28,7 +28,7 @@ const { clear, debug } = cli_1.flags;
         (0, initService_1.default)(flagsInput.token);
     }
     else if (input[0].indexOf('shuffle') > -1) {
-        (0, shuffleService_1.default)(flagsInput.amount);
+        (0, shuffleService_1.default)(flagsInput.amount, flagsInput.market);
     }
 })().catch((err) => console.log(err));
 //# sourceMappingURL=index.js.map

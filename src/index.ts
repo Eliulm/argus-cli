@@ -33,7 +33,7 @@ const { clear, debug } = flags;
 	} else if (input[0].indexOf('init') > -1) {
 		init(flagsInput.token);
 	} else if(input[0].indexOf('shuffle') > -1) {
-		shuffle(flagsInput.amount);
+		shuffle(flagsInput.amount, flagsInput.market);
 	}
 
 })().catch((err) => console.log(err));

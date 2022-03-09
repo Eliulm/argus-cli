@@ -35,7 +35,13 @@ exports.flags = {
         type: `number`,
         default: 10,
         alias: `a`,
-        desc: `Prints a scpecified random amount of actively traded ticker in german markets. Default is 10.`
+        desc: `Prints a scpecified random amount of actively traded ticker. (Default is 10).`
+    },
+    market: {
+        type: `string`,
+        default: `de`,
+        alias: `m`,
+        desc: `Specifies the market. (Default is de)`
     }
 };
 exports.commands = {

@@ -1,6 +1,17 @@
 {
-    "date_de": "",
-    "tickers_de": [],
-    "date_us": "",
-    "tickers_us": []
+  "date_de": "2022-03-13T22:56:28.694Z",
+  "tickers_de": [
+    "O2D",
+    "EVK",
+    "SHA",
+    "SAP",
+    "CBK",
+    "ENR",
+    "IFX",
+    "IFX",
+    "SDF",
+    "SIE"
+  ],
+  "date_us": "",
+  "tickers_us": []
 }

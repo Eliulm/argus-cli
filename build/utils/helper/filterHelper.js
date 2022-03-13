@@ -15,10 +15,15 @@ const filterData = (html, amount, market) => {
     });
     let symbols = [];
     let count = tickers.length;
-    for (let i = 0; i < amount; i++) {
-        var randInt = Math.floor(Math.random() * count);
-        var symbol = tickers[randInt];
-        symbols.push(symbol);
+    if (amount <= tickers.length) {
+        for (let i = 0; i < amount; i++) {
+            var randInt = Math.floor(Math.random() * count);
+            var symbol = tickers[randInt];
+            symbols.push(symbol);
+        }
+    }
+    else {
+        console.log("Error -> Specified amount can not exceed total of tickers available.");
     }
     return symbols;
 };

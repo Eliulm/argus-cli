@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const cheerio = require('cheerio');
+const fs = require('fs');
+const fileHelper_1 = require("../helper/fileHelper");
 const filterHelper_1 = require("../helper/filterHelper");
 const webcrawlerHelper_1 = require("../helper/webcrawlerHelper");
 exports.default = async (amount, market) => {
@@ -10,9 +12,12 @@ exports.default = async (amount, market) => {
         const html = res.data;
         const $ = cheerio.load(html);
         const tickers = (0, filterHelper_1.filterData)($, amount, market);
-        console.log("Market: " + market, " | Amount: " + amount + "\n");
+        console.log("Market: " + market, "| Amount: " + amount + "\n");
         for (const ticker of tickers) {
             console.log(ticker);
+        }
+        if (true) {
+            (0, fileHelper_1.writeCache)(tickers, market);
         }
     }).catch((err) => console.log(err));
 };

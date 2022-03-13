@@ -2,7 +2,7 @@ const fs = require('fs');
 import { Market } from '../commands/shuffleService';
 
 export const writeCache = async (tickers: string[], market: Market) => {
-	const filename = 'C:/Users/Elias Wahl/argus-cli/build/temp/cache.json';
+	const filename = '/Users/elias_wahl/argus-cli/build/temp/cache.json';
 	const file = require(filename);
 
     if (market == 'de') {

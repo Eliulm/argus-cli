@@ -28,7 +28,15 @@ const { clear, debug } = cli_1.flags;
         (0, initService_1.default)(flagsInput.token);
     }
     else if (input[0].indexOf('shuffle') > -1) {
-        (0, shuffleService_1.default)(flagsInput.amount, flagsInput.market);
+        if (flagsInput.market == 'de') {
+            (0, shuffleService_1.default)(flagsInput.amount, 'de');
+        }
+        else if (flagsInput.market == 'us') {
+            (0, shuffleService_1.default)(flagsInput.amount, 'us');
+        }
+        else {
+            console.log("Unproper market description.");
+        }
     }
 })().catch((err) => console.log(err));
 //# sourceMappingURL=index.js.map

@@ -15,6 +15,7 @@ import log from './utils/log'
 import landingPage from './utils/commands/landingPageService'
 import init from './utils/commands/initService'
 import shuffle from './utils/commands/shuffleService'
+import { Market } from './utils/commands/shuffleService'
 
 const input = cli.input;
 //from meow
@@ -33,7 +34,13 @@ const { clear, debug } = flags;
 	} else if (input[0].indexOf('init') > -1) {
 		init(flagsInput.token);
 	} else if(input[0].indexOf('shuffle') > -1) {
-		shuffle(flagsInput.amount, flagsInput.market);
+		if (flagsInput.market == 'de') {
+			shuffle(flagsInput.amount, 'de');
+		} else if (flagsInput.market == 'us') {
+			shuffle(flagsInput.amount, 'us');
+		} else {
+			console.log("Unproper market description.");
+		}
 	}
 
 })().catch((err) => console.log(err));

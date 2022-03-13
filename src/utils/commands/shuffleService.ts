@@ -1,7 +1,10 @@
-const cheerio = require('cheerio')
+const cheerio = require('cheerio');
+const fs = require('fs');
 
 import { filterData} from '../helper/filterHelper'
 import { fetchData } from '../helper/webcrawlerHelper'
+
+export type market = "de" | "us";
 
 export default async (amount: number, market: string) => {
     

@@ -35,8 +35,8 @@ const { clear, debug } = cli_1.flags;
             (0, shuffleService_1.default)(flagsInput.amount, 'us');
         }
         else {
-            console.log("Unproper market description.");
+            console.log('Invalid market description.');
         }
     }
-})().catch((err) => console.log(err));
+})().catch(err => console.log(err));
 //# sourceMappingURL=index.js.map

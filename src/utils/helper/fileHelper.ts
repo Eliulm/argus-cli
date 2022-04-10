@@ -1,8 +1,10 @@
 const fs = require('fs');
 import { Market } from '../commands/shuffleService';
+import { sys_path } from '../../constants/paths';
+
+const filename = sys_path + 'build/temp/cache.json';
 
 export const writeCache = async (tickers: string[], market: Market) => {
-  const filename = '/Users/elias_wahl/Repos/argus-cli/build/temp/cache.json';
   const file = require(filename);
 
   if (market == 'de') {
@@ -27,7 +29,6 @@ export const writeCache = async (tickers: string[], market: Market) => {
 };
 
 export const clearCache = (market: Market) => {
-  const filename = '/Users/elias_wahl/Repos/argus-cli/build/temp/cache.json';
   const file = require(filename);
   market == 'de' ? (file.de.tickers = []) : (file.us.tickers = []);
 
@@ -41,7 +42,6 @@ export const clearCache = (market: Market) => {
 };
 
 export const getCache = (market: Market) => {
-  const filename = '/Users/elias_wahl/Repos/argus-cli/build/temp/cache.json';
   const file = require(filename);
 
   return market == 'de' ? file.de : file.us;

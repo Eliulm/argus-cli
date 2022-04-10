@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCache = exports.clearCache = exports.writeCache = void 0;
 const fs = require('fs');
+const paths_1 = require("../../constants/paths");
+const filename = paths_1.sys_path + 'build/temp/cache.json';
 const writeCache = async (tickers, market) => {
-    const filename = '/Users/elias_wahl/Repos/argus-cli/build/temp/cache.json';
     const file = require(filename);
     if (market == 'de') {
         file.de.date = new Date();
@@ -28,7 +29,6 @@ const writeCache = async (tickers, market) => {
 };
 exports.writeCache = writeCache;
 const clearCache = (market) => {
-    const filename = '/Users/elias_wahl/Repos/argus-cli/build/temp/cache.json';
     const file = require(filename);
     market == 'de' ? (file.de.tickers = []) : (file.us.tickers = []);
     fs.writeFile(filename, JSON.stringify(file, null, 2), (err) => {
@@ -42,7 +42,6 @@ const clearCache = (market) => {
 };
 exports.clearCache = clearCache;
 const getCache = (market) => {
-    const filename = '/Users/elias_wahl/Repos/argus-cli/build/temp/cache.json';
     const file = require(filename);
     return market == 'de' ? file.de : file.us;
 };

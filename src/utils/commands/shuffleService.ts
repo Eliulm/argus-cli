@@ -4,16 +4,17 @@ const fs = require('fs');
 import { writeCache, getCache, clearCache } from '../helper/fileHelper';
 import { filterData } from '../helper/filterHelper';
 import { fetchData } from '../helper/webcrawlerHelper';
+import { yahoo_de, yahoo_us } from '../../constants/paths';
+import { DAY } from '../../constants/utils';
 
 export type Market = 'de' | 'us';
 
 export default async (amount: number, market: Market) => {
   const url = {
-    de: 'https://de.finance.yahoo.com/most-active/?offset=0&count=100',
-    us: 'https://finance.yahoo.com/most-active/?offset=0&count=100'
+    de: 'yahoo_de',
+    us: 'yahoo_us'
   };
   const today = new Date().getTime();
-  const DAY: number = 24 * 60 * 60 * 1000;
   const lastRefreshDate = isNaN(new Date(getCache(market).date).getTime())
     ? new Date().getTime() - (DAY + 1)
     : new Date(getCache(market).date).getTime();

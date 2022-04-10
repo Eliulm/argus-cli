@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require('fs');
+const paths_1 = require("../../constants/paths");
 exports.default = async (token) => {
-    const filename = 'C:/Users/Elias Wahl/argus-cli/src/secrets/secrets.json';
+    const filename = paths_1.sys_path + 'src/secrets/secrets.json';
     const file = require(filename);
     file.api.token = token;
     fs.writeFile(filename, JSON.stringify(file, null, 2), (err) => {
@@ -11,7 +12,7 @@ exports.default = async (token) => {
         }
         else {
             console.log('writing secrets...');
-            console.log("token: " + token);
+            console.log('token: ' + token);
         }
     });
 };

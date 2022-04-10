@@ -1,5 +1,6 @@
 const fs = require('fs');
 import { sys_path } from '../../constants/paths';
+import { log } from '../cli';
 
 export default async (token: string) => {
   const filename = sys_path + 'src/secrets/secrets.json';
@@ -8,10 +9,10 @@ export default async (token: string) => {
 
   fs.writeFile(filename, JSON.stringify(file, null, 2), (err: any) => {
     if (err) {
-      return console.log(err);
+      return log(err);
     } else {
-      console.log('writing secrets...');
-      console.log('token: ' + token);
+      log('writing secrets...');
+      log('token: ' + token);
     }
   });
 };

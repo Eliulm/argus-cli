@@ -1,6 +1,7 @@
 const fs = require('fs');
 const axios = require('axios');
 
+import { log } from '../cli';
 import { sys_path } from '../../constants/paths';
 
 //TODO implement rest call to get query.
@@ -9,7 +10,7 @@ export default async () => {
   const file = require(filename);
 
   fs.readFile(file, (err: any, data: any) => {
-    if (err) console.log(err);
+    if (err) log(err);
 
     const token = data.api.token;
 
@@ -19,10 +20,10 @@ export default async () => {
         ?active=true&sort=ticker&order=asc&limit=10&apiKey=${token}`
       )
       .then((response: any) => {
-        console.log(response.results[0].ticker);
+        log(response.results[0].ticker);
       })
       .catch((error: any) => {
-        console.log(error);
+        log(error);
       });
   });
 };

@@ -4,6 +4,8 @@ const fs = require('fs');
 import { writeCache, getCache, clearCache } from '../helper/fileHelper';
 import { filterData } from '../helper/filterHelper';
 import { fetchData } from '../helper/webcrawlerHelper';
+import { log } from '../cli';
+
 import { yahoo_de, yahoo_us } from '../../constants/paths';
 import { DAY } from '../../constants/utils';
 
@@ -30,17 +32,17 @@ export default async (amount: number, market: Market) => {
         writeCache(tickers, market);
 
         if (amount > tickers.length) {
-          console.log(
+          log(
             'Specified ticker amount is exceeding available tickers.' +
             '\n'
           );
-          console.log(`Printing ${tickers.length} tickers instead`);
+          log(`Printing ${tickers.length} tickers instead`);
           amount = tickers.length;
         }
 
-        console.log('Market: ' + market, '| Amount: ' + amount + '\n');
+        log('Market: ' + market + ' | Amount: ' + amount + '\n');
         for (const ticker of tickers.slice(0, amount)) {
-          console.log(ticker);
+          log(ticker);
         }
       })
       .catch(err => console.log(err));
@@ -48,17 +50,17 @@ export default async (amount: number, market: Market) => {
     //get random tickers from cash
     const tickers = getCache(market).tickers;
     if (amount > tickers.length) {
-      console.log(
+      log(
         'Specified ticker amount is exceeding available tickers.' + '\n'
       );
-      console.log(`Printing ${tickers.length} tickers instead`);
+      log(`Printing ${tickers.length} tickers instead`);
       amount = tickers.length;
     }
 
-    console.log('Market: ' + market, '| Amount: ' + amount + '\n');
+    log('Market: ' + market + ' | Amount: ' + amount + '\n');
     for (let i = 0; i < amount; i++) {
       var randInt: number = Math.floor(Math.random() * tickers.length);
-      console.log(tickers[randInt]);
+      log(tickers[randInt]);
     }
   }
 };

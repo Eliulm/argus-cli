@@ -1,3 +1,5 @@
+import { log } from '../cli';
+
 export const filterData = (
   html: any,
   amount: number,
@@ -29,7 +31,7 @@ export const filterData = (
       symbols.push(symbol);
     }
   } else {
-    console.log(
+    log(
       'Error -> Specified amount can not exceed total of tickers available.'
     );
   }

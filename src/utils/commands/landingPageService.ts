@@ -1,11 +1,13 @@
 const figlet = require('figlet');
 
+import { log } from '../cli';
+
 export default () => {
-    figlet('argus-cli', function(err, data) {
-        if (err) {
-            console.log('Something went wrong...');
-            console.dir(err);
-        }
-        console.log(data);
-    })
-}
+  figlet('argus-cli', function(err, data) {
+    if (err) {
+      log('Something went wrong...');
+      console.dir(err);
+    }
+    log(data);
+  });
+};

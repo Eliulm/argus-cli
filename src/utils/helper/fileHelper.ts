@@ -1,4 +1,6 @@
 const fs = require('fs');
+import { log } from '../cli';
+
 import { Market } from '../commands/shuffleService';
 import { sys_path } from '../../constants/paths';
 
@@ -21,9 +23,9 @@ export const writeCache = async (tickers: string[], market: Market) => {
 
   fs.writeFile(filename, JSON.stringify(file, null, 2), (err: any) => {
     if (err) {
-      return console.log(err);
+      return log(err);
     } else {
-      console.log('rewriting cache...');
+      log('rewriting cache...');
     }
   });
 };
@@ -34,9 +36,9 @@ export const clearCache = (market: Market) => {
 
   fs.writeFile(filename, JSON.stringify(file, null, 2), (err: any) => {
     if (err) {
-      return console.log(err);
+      return log(err);
     } else {
-      console.log('clearing cache...');
+      log('clearing cache...');
     }
   });
 };

@@ -38,7 +38,7 @@ const { clear, debug } = flags;
     } else if (flagsInput.market == 'us') {
       shuffle(flagsInput.amount, 'us');
     } else {
-      console.log('Invalid market description.');
+      log('Invalid market description.');
     }
   }
 })().catch(err => console.log(err));

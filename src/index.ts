@@ -23,7 +23,7 @@ const { clear, debug } = flags;
 
 (async () => {
   //init({ clear });
-  if (input[0] !== undefined) {
+  if (typeof input[0] !== 'undefined') {
     input[0].indexOf(`help`) > -1 && cli.showHelp(0);
 
     debug.default && log(flags);
@@ -40,6 +40,10 @@ const { clear, debug } = flags;
       } else {
         log('Invalid market description.');
       }
+    } else {
+      log('Invalid command.');
     }
+  } else {
+    log('Please provide a correct command.');
   }
 })().catch(err => console.log(err));

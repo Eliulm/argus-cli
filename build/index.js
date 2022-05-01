@@ -19,7 +19,7 @@ const flagsInput = cli_2.default.flags;
 const { clear, debug } = cli_1.flags;
 (async () => {
     //init({ clear });
-    if (input[0] !== undefined) {
+    if (typeof input[0] !== 'undefined') {
         input[0].indexOf(`help`) > -1 && cli_2.default.showHelp(0);
         debug.default && (0, log_1.default)(cli_1.flags);
         if (input[0].indexOf('cli') > -1) {
@@ -39,6 +39,12 @@ const { clear, debug } = cli_1.flags;
                 (0, log_1.default)('Invalid market description.');
             }
         }
+        else {
+            (0, log_1.default)('Invalid command.');
+        }
+    }
+    else {
+        (0, log_1.default)('Please provide a correct command.');
     }
 })().catch(err => console.log(err));
 //# sourceMappingURL=index.js.map

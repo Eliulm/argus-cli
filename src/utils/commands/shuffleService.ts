@@ -13,14 +13,13 @@ export type Market = 'de' | 'us';
 
 export default async (amount: number, market: Market) => {
   const url = {
-    de: 'yahoo_de',
-    us: 'yahoo_us'
+    de: yahoo_de,
+    us: yahoo_us
   };
   const today = new Date().getTime();
   const lastRefreshDate = isNaN(new Date(getCache(market).date).getTime())
     ? new Date().getTime() - (DAY + 1)
     : new Date(getCache(market).date).getTime();
-
   //If last cache is older than a day:
   if (today - lastRefreshDate > DAY) {
     fetchData(market == 'us' ? url['us'] : url['de'])

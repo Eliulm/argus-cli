@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCache = exports.clearCache = exports.writeCache = void 0;
 const fs = require('fs');
+const cli_1 = require("../cli");
 const paths_1 = require("../../constants/paths");
 const filename = paths_1.sys_path + 'build/temp/cache.json';
 const writeCache = async (tickers, market) => {
@@ -20,10 +21,10 @@ const writeCache = async (tickers, market) => {
     }
     fs.writeFile(filename, JSON.stringify(file, null, 2), (err) => {
         if (err) {
-            return console.log(err);
+            return (0, cli_1.log)(err);
         }
         else {
-            console.log('rewriting cache...');
+            (0, cli_1.log)('rewriting cache...');
         }
     });
 };
@@ -33,10 +34,10 @@ const clearCache = (market) => {
     market == 'de' ? (file.de.tickers = []) : (file.us.tickers = []);
     fs.writeFile(filename, JSON.stringify(file, null, 2), (err) => {
         if (err) {
-            return console.log(err);
+            return (0, cli_1.log)(err);
         }
         else {
-            console.log('clearing cache...');
+            (0, cli_1.log)('clearing cache...');
         }
     });
 };

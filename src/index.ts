@@ -23,22 +23,23 @@ const { clear, debug } = flags;
 
 (async () => {
   //init({ clear });
+  if (input[0] !== undefined) {
+    input[0].indexOf(`help`) > -1 && cli.showHelp(0);
 
-  input[0].indexOf(`help`) > -1 && cli.showHelp(0);
+    debug.default && log(flags);
 
-  debug.default && log(flags);
-
-  if (input[0].indexOf('cli') > -1) {
-    landingPage();
-  } else if (input[0].indexOf('init') > -1) {
-    init(flagsInput.token);
-  } else if (input[0].indexOf('shuffle') > -1) {
-    if (flagsInput.market == 'de') {
-      shuffle(flagsInput.amount, 'de');
-    } else if (flagsInput.market == 'us') {
-      shuffle(flagsInput.amount, 'us');
-    } else {
-      log('Invalid market description.');
+    if (input[0].indexOf('cli') > -1) {
+      landingPage();
+    } else if (input[0].indexOf('init') > -1) {
+      init(flagsInput.token);
+    } else if (input[0].indexOf('shuffle') > -1) {
+      if (flagsInput.market == 'de') {
+        shuffle(flagsInput.amount, 'de');
+      } else if (flagsInput.market == 'us') {
+        shuffle(flagsInput.amount, 'us');
+      } else {
+        log('Invalid market description.');
+      }
     }
   }
 })().catch(err => console.log(err));

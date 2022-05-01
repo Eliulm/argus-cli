@@ -19,23 +19,25 @@ const flagsInput = cli_2.default.flags;
 const { clear, debug } = cli_1.flags;
 (async () => {
     //init({ clear });
-    input[0].indexOf(`help`) > -1 && cli_2.default.showHelp(0);
-    debug.default && (0, log_1.default)(cli_1.flags);
-    if (input[0].indexOf('cli') > -1) {
-        (0, landingPageService_1.default)();
-    }
-    else if (input[0].indexOf('init') > -1) {
-        (0, initService_1.default)(flagsInput.token);
-    }
-    else if (input[0].indexOf('shuffle') > -1) {
-        if (flagsInput.market == 'de') {
-            (0, shuffleService_1.default)(flagsInput.amount, 'de');
+    if (input[0] !== undefined) {
+        input[0].indexOf(`help`) > -1 && cli_2.default.showHelp(0);
+        debug.default && (0, log_1.default)(cli_1.flags);
+        if (input[0].indexOf('cli') > -1) {
+            (0, landingPageService_1.default)();
         }
-        else if (flagsInput.market == 'us') {
-            (0, shuffleService_1.default)(flagsInput.amount, 'us');
+        else if (input[0].indexOf('init') > -1) {
+            (0, initService_1.default)(flagsInput.token);
         }
-        else {
-            console.log('Invalid market description.');
+        else if (input[0].indexOf('shuffle') > -1) {
+            if (flagsInput.market == 'de') {
+                (0, shuffleService_1.default)(flagsInput.amount, 'de');
+            }
+            else if (flagsInput.market == 'us') {
+                (0, shuffleService_1.default)(flagsInput.amount, 'us');
+            }
+            else {
+                (0, log_1.default)('Invalid market description.');
+            }
         }
     }
 })().catch(err => console.log(err));

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.filterData = void 0;
+const cli_1 = require("../cli");
 const filterData = (html, amount, market, all = true) => {
     const tickers = [];
     const tickerTable = html('#scr-res-table > div > table > tbody > tr > td > a');
@@ -24,7 +25,7 @@ const filterData = (html, amount, market, all = true) => {
         }
     }
     else {
-        console.log('Error -> Specified amount can not exceed total of tickers available.');
+        (0, cli_1.log)('Error -> Specified amount can not exceed total of tickers available.');
     }
     return symbols;
 };

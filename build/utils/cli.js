@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.options = exports.helpText = exports.commands = exports.flags = void 0;
+exports.log = exports.options = exports.helpText = exports.commands = exports.flags = void 0;
 const meow = require('meow');
 const meowHelp = require('cli-meow-help');
 exports.flags = {
@@ -47,7 +47,8 @@ exports.flags = {
 exports.commands = {
     help: { desc: `Print help info` },
     landingPage: { desc: `Landing page` },
-    init: { desc: `Saves an access token for the polygon.io api` }
+    init: { desc: `Saves an access token for the polygon.io api` },
+    shuffle: { desc: `Retrieves random tickers from yahoo finance api` }
 };
 exports.helpText = meowHelp({
     name: `hello`,
@@ -60,6 +61,9 @@ exports.options = {
     hardRejection: false,
     flags: exports.flags
 };
+const log = args => {
+    console.log(args);
+};
+exports.log = log;
 exports.default = meow(exports.helpText, exports.options);
-//module.exports = meow(helpText, options);
 //# sourceMappingURL=cli.js.map
